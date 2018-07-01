@@ -4,6 +4,7 @@ var Yu08Layer = cc.Layer.extend({
     man:null,
     manFrame: new Array(4),
     isRight: true,
+    action: 0,
     ctor:function () {
         this._super();
 
@@ -20,7 +21,7 @@ var Yu08Layer = cc.Layer.extend({
         var img40 = frameCache.getSpriteFrame("image40.png");
         this.manFrame = [img37,img38,img39,img40];
 
-        this.man = new cc.Sprite(this.manFrame[0]);
+        this.man = new cc.Sprite(this.manFrame[this.action]);
         this.man.x = cc.winSize.width / 2;
         this.man.y = cc.winSize.height / 2 + 44;
         this.addChild(this.man);
@@ -54,12 +55,25 @@ var Yu08Layer = cc.Layer.extend({
     goForward: function () {
         if (this.bg.x + this.bg.width/2 - this.dx>= cc.winSize.width){
             this.bg.x -= this.dx;
+
+            this.action = this.action == 3?0:this.action+1;
+            this.man.setSpriteFrame(this.manFrame[this.action]);
+        }else {
+
+            if (this.man.x + this.dx >= cc.winSize.width){
+                cc.log("get");
+            }
+            this.action = this.action == 3?0:this.action+1;
+            this.man.setSpriteFrame(this.manFrame[this.action]);
         }
     },
 
     goBack: function () {
         if (this.bg.x - this.bg.width/2 + this.dx <= 0){
             this.bg.x += this.dx;
+
+            this.action = this.action == 3?0:this.action+1;
+            this.man.setSpriteFrame(this.manFrame[this.action]);
         }
     }
 });
