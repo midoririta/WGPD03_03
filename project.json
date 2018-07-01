@@ -15,6 +15,7 @@
         "src/resource.js",
         "src/Yu03.js",
         "src/Yu04.js",
+        "src/Yu05.js",
         "src/app.js"
     ]
 }
