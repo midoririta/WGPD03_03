@@ -25,7 +25,6 @@ var Yu04Layer = cc.Layer.extend({
                 this.lastX = e.getLocationX();
                 this.lastY = e.getLocationY();
 
-
             },
             onMouseUp: function (e) {
                 var target = e.getCurrentTarget();
