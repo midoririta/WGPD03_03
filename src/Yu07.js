@@ -1,13 +1,15 @@
 var Yu07Layer = cc.Layer.extend({
     sprite:null,
     isShoot: false,
+    dx: 4,
+    dy: 4,
     ctor:function () {
         this._super();
 
         this.sprite = new cc.Sprite(res.HelloWorld_png);
         this.sprite.attr({
-            x: cc.winSize.width / 2,
-            y: cc.winSize.height / 2
+            x: 0,
+            y: 0
         });
         this.addChild(this.sprite);
 
@@ -18,6 +20,7 @@ var Yu07Layer = cc.Layer.extend({
             onMouseDown: function (e) {
                 var target = e.getCurrentTarget();
                 target.isShoot = true;
+
             },
             onMouseUp: function (e) {
                 var target = e.getCurrentTarget();
@@ -34,6 +37,10 @@ var Yu07Layer = cc.Layer.extend({
     update: function () {
         if(this.isShoot){
             cc.log('shooting...');
+            this.sprite.x += this.dx;
+            this.sprite.y += this.dy;
+
+
         }
     }
 
