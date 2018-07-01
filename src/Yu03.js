@@ -10,7 +10,7 @@ var Yu03Layer = cc.Layer.extend({
     },
 
     setupMouse: function () {
-        
+
         cc.eventManager.addListener({
             event: cc.EventListener.MOUSE,
             onMouseDown: function (e) {
@@ -34,7 +34,7 @@ var Yu03Layer = cc.Layer.extend({
                     var y = e.getLocationY();
                     cc.log("x: "+ x + "y: " + y);
                 }
-                //cc.log("move");
+                // cc.log("move");
             },
             onMouseScroll: function (e) {
                 //cc.log("scroll");
