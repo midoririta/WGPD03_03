@@ -5,7 +5,7 @@ var Yu03Layer = cc.Layer.extend({
     ctor:function () {
         this._super();
         this.setupMouse();
-
+        //
         return true;
     },
 
